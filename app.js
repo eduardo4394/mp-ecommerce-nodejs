@@ -57,8 +57,8 @@ app.get('/detail', async function (req, res) {
     const items =[{
         id:"1234",
         title:req.query.title,
-        description:"Dispositivo móvil de Tienda e-commerce",
-        picture_url:req.get("host") + req.query.img.slice(1),
+        description:"Dispositivo movil de Tienda e-commerce",
+        picture_url:req.protocol+"://"+ req.get("host") + req.query.img.slice(1),
         quantity:+req.query.unit,
         unit_price:Number(req.query.price),
     }]
@@ -66,7 +66,7 @@ app.get('/detail', async function (req, res) {
     const back_urls={
         success:process.env.SUCCESS_URL,
         pending:process.env.PENDING_URL,
-        failure:process.env.FFAILURE_URL
+        failure:process.env.FAILURE_URL
     }
 
     const preferencia={
